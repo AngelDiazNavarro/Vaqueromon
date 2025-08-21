@@ -1,20 +1,43 @@
 
-public  interface mon {
-
+public abstract class mon {
+    private final String name;
     
- 
-    String name(); 
+    private  int health;
 
-    int health();
-       
-    public int atk();
+    private int atk;
 
-    public int speed();
-        
-    public int defense();
- 
-    public Mon_type type();
+    private final Mon_type type;
 
-    public Moves[] moves();
+    private int speed;
 
+    private int defense;
+
+
+    public mon(String name, int health,int atk,int speed,int  defense, Mon_type type) {
+            this.name = name;
+            this.health = health;
+            this.atk= atk;
+            this.speed = speed;
+            this.defense = defense;
+            this.type = type;
+
+    }   
+    public String getName(){
+        return name;
+    }
+    public int health(){
+        return health;
+    }
+    public int atk(){
+        return atk;
+    }
+    public int speed(){
+        return speed;
+    }
+    public int defense(){
+        return defense;
+    }
+    public Mon_type type(){
+        return type;
+    }
 }
