@@ -8,7 +8,7 @@ public class GameWindow {
     public GameWindow(GamePanel gamePanel){
         jframe = new JFrame();
 
-        jframe.setSize(1280,720);
+        jframe.setSize(400,400);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         jframe.add(gamePanel);
