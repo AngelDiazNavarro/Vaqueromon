@@ -1,5 +1,5 @@
 package Classes;
-public abstract class mon {
+public class mon {
     private final String name;
     
     private  int health;
@@ -10,17 +10,17 @@ public abstract class mon {
 
     private int speed;
 
-    private int defense;
+    private int def;
     
     private final Moves move;
 
-
-    public mon(String name, int health,int atk,int speed,int  defense, Mon_type type, Moves move) {
+    // constructor for mon class needs pojo 
+    public mon(String name, int health,int atk,int speed,int  def, Mon_type type, Moves move) {
             this.name = name;
             setHealth(health);
             this.atk= atk;
             this.speed = speed;
-            this.defense = defense;
+            this.def = def;
             this.type = type;
             this.move = move;
 
@@ -40,8 +40,8 @@ public abstract class mon {
     public int speed(){
         return speed;
     }
-    public int defense(){
-        return defense;
+    public int def(){
+        return def;
     }
     public Mon_type type(){
         return type;
@@ -49,8 +49,9 @@ public abstract class mon {
     public Moves getMove(){
         return move;
     }
+    //damage formula (could be reworked)
     public void takeDamege(int damage){
-        setHealth(damage/defense*2);
+        setHealth(damage/def*2);
     }
     
     }
