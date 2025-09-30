@@ -6,7 +6,7 @@ class Game():
         pygame.init()
         self.display_surface = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT)) # Hace el window surface
         pygame.display.set_icon(icon)
-        pygame.display.set_caption('Vaqueromon')    # Nombra al window
+        pygame.display.set_caption('Vaqueromon')
         self.clock = pygame.time.Clock()
         self.running = True
 
