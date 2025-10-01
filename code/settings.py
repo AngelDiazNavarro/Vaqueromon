@@ -3,7 +3,7 @@ from os.path import join
 from os import walk
 
 WINDOW_WIDTH, WINDOW_HEIGHT = 1280, 720
-icon = pygame.image.load(join('images','icon.png'))     # Cambiar logo despues
+icon = pygame.image.load(join('images','other', 'icon.png'))     # Cambiar logo despues
 
 # CAMBIAR ESTO LUEGO
 
