@@ -1,7 +1,7 @@
 from settings import *
 from support import *
-from timer import Timer
 from monster import Monster, Opponent
+from ui import UI
 
 class Game():
     def __init__(self):
@@ -25,6 +25,9 @@ class Game():
         opponent_name = 'Plumette'
         self.opponent = Opponent(opponent_name,self.front_surfs[opponent_name],self.all_sprites)
 
+        # UI
+        self.ui = UI(self.monster)
+
     def import_assets(self):
         self.back_surfs = folder_importer('images', 'back')
         self.front_surfs = folder_importer('images', 'front')
@@ -44,11 +47,13 @@ class Game():
 
             # updates
             self.all_sprites.update(self.dt)               # Actualiza todos los sprites en cada frame      
-        
+            self.ui.update()
+
             # draw
             self.display_surface.blit(self.bg_surfs['bg'],(0,0))
             self.draw_monster_floor()
             self.all_sprites.draw(self.display_surface)     # Dibuja los sprites en display surface cada segundo
+            self.ui.draw()
             pygame.display.update()                         # Actualiza el display window
 
         pygame.quit()
