@@ -1,25 +1,28 @@
-# Vaqueromon
+# VAQUEROMON  
+### A LAN-Based Turn Combat Game
 
-Vaqueromon is a turn-based monster fighting game written in Python.  
-It uses TCP sockets to enable multiplayer battles between different users.
+Vaqueromon es un juego de combate por turnos inspirado en mecánicas clásicas de RPG, diseñado para funcionar mediante **conexiones LAN**.  
+Dos jugadores pueden unirse a una partida generando un número de sala (*Room Number*) y conectándose mediante la dirección IP del host.
 
-## Description
+---
 
-TBD
+## Características Principales
 
-## Instalation
+- **Batallas LAN en tiempo real** usando sockets TCP.  
+- **Selección de equipo**: cada jugador elige 4 Vaqueromons.  
+- **Sistema de combate por turnos** sincronizado entre host y cliente.  
+- **Animaciones de ataque** y UI personalizada.  
+- **Efectos de sonido y música ambiental**.  
+- **Sprites personalizados** (front/back) para cada Vaqueromon.
 
-TBD
+---
 
-## Contributing
+## Cómo Funciona la Conexión
 
-TBD
+1. El host inicia una sala ingresando un número de 4 dígitos.  
+2. Se genera un puerto dinámico basado en ese número.  
+3. El cliente ingresa el mismo número y escribe la IP del host.  
+4. Ambos jugadores seleccionan sus Vaqueromons.  
+5. Comienza la batalla sincronizada por TCP.
 
-## Credits
-
-TBD
-
-## License
-
-TBD
-
+La comunicación usa un protocolo propio basado en JSON, asegurando que cada mensaje llegue completo y en orden.
