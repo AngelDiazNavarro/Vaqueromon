@@ -5,7 +5,7 @@ class Creature:
     def get_data(self, name):
         self.element = MONSTER_DATA[name]['element']
         self._health = self.max_health = MONSTER_DATA[name]['health']
-        self.abilities = sample(list(ABILITIES_DATA.keys()),4)
+        self.abilities = sample(list(ABILITIES_DATA.keys()), 4)
         self.name = name
     
     @property

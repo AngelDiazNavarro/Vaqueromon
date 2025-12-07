@@ -11,32 +11,24 @@ COLORS = {
     'white': '#ffffff',
 }
 
+# Vaqueromon programming-themed monsters
 MONSTER_DATA = {
-	'Plumette':    {'element': 'plant', 'health': 90},
-	'Ivieron':     {'element': 'plant', 'health': 140},
-	'Pluma':       {'element': 'plant', 'health': 160},
-	'Sparchu':     {'element': 'fire',  'health': 70},
-	'Cindrill':    {'element': 'fire',  'health': 100},
-	'Charmadillo': {'element': 'fire',  'health': 120},
-	'Finsta':      {'element': 'water', 'health': 50},
-	'Gulfin':      {'element': 'water', 'health': 80},
-	'Finiette':    {'element': 'water', 'health': 100},
-	'Atrox':       {'element': 'fire',  'health': 50},
-	'Pouch':       {'element': 'plant', 'health': 80},
-	'Draem':       {'element': 'plant', 'health': 110},
-	'Larvea':      {'element': 'plant', 'health': 40},
-	'Cleaf':       {'element': 'plant', 'health': 90},
-	'Jacana':      {'element': 'fire',  'health': 60},
-	'Friolera':    {'element': 'water', 'health': 70},
+    'Android': {'element': 'plant',  'health': 110},
+    'Clippy':  {'element': 'normal', 'health': 80},
+    'DMan':    {'element': 'fire',   'health': 90},
+    'Duke':    {'element': 'fire',   'health': 120},
+    'Go':      {'element': 'water',  'health': 130},
+    'HolyC':   {'element': 'plant',  'health': 100},
+    'Keith':   {'element': 'normal', 'health': 95},
 }
 
 ABILITIES_DATA = {
-	'scratch': {'damage': 20,  'element': 'normal', 'animation': 'scratch'},
-	'spark':   {'damage': 35,  'element': 'fire',   'animation': 'fire'},
-	'nuke':    {'damage': 50,  'element': 'fire',   'animation': 'explosion'},
-	'splash':  {'damage': 30,  'element': 'water',  'animation': 'splash'},
-	'shards':  {'damage': 50,  'element': 'water',  'animation': 'ice'},
-    'spiral':  {'damage': 40,  'element': 'plant',  'animation': 'green'}
+    'scratch': {'damage': 20,  'element': 'normal', 'animation': 'scratch'},
+    'spark':   {'damage': 35,  'element': 'fire',   'animation': 'fire'},
+    'nuke':    {'damage': 50,  'element': 'fire',   'animation': 'explosion'},
+    'splash':  {'damage': 30,  'element': 'water',  'animation': 'splash'},
+    'shards':  {'damage': 50,  'element': 'water',  'animation': 'ice'},
+    'spiral':  {'damage': 40,  'element': 'plant',  'animation': 'green'},
 }
 
 ELEMENT_DATA = {

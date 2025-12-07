@@ -1,31 +1,48 @@
-from settings import * 
+import sys
+import os
+import pygame
+from os import walk
 
-def folder_importer(*path):
-    surfs = {}
-    for folder_path, _, file_names in walk(join(*path)):
-        for file_name in file_names:
-            full_path = join(folder_path, file_name)
-            surfs[file_name.split('.')[0]] = pygame.image.load(full_path).convert_alpha()
-    return surfs
+def resource_path(relative_path):
+    if hasattr(sys, "_MEIPASS"):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', relative_path)
 
-def audio_importer(*path):
-    audio_dict = {}
-    for folder_path, _, file_names in walk(join(*path)):
-        for file_name in file_names:
-            audio_dict[file_name.split('.')[0]] = pygame.mixer.Sound(join(folder_path, file_name))
-    return audio_dict
+def folder_importer(root_folder, subfolder):
+    folder = resource_path(f"{root_folder}/{subfolder}")
+    data = {}
+    for path, _, files in walk(folder):
+        for file in files:
+            if file.endswith(('.png', '.jpg')):
+                full_path = os.path.join(path, file)
+                key = file.split('.')[0]
+                data[key] = pygame.image.load(full_path).convert_alpha()
+    return data
 
-def tile_importer(cols, *path):
-    attack_frames = {}
-    for folder_path, _, file_names in walk(join(*path)):
-        for file_name in file_names:
-            full_path = join(folder_path, file_name)
-            surf = pygame.image.load(full_path).convert_alpha()
-            attack_frames[file_name.split('.')[0]] = []
-            cutout_width = surf.get_width() / cols
-            for col in range(cols):
-                cutout_surf = pygame.Surface((cutout_width, surf.get_height()), pygame.SRCALPHA)
-                cutout_rect = pygame.FRect(cutout_width * col,0,cutout_width,surf.get_height())
-                cutout_surf.blit(surf, (0,0),cutout_rect)
-                attack_frames[file_name.split('.')[0]].append(cutout_surf)
-    return attack_frames
+def tile_importer(size, root_folder, subfolder):
+    folder = resource_path(f"{root_folder}/{subfolder}")
+    tiles = {}
+    for path, _, files in walk(folder):
+        for file in files:
+            if file.endswith('.png'):
+                full_path = os.path.join(path, file)
+                sheet = pygame.image.load(full_path).convert_alpha()
+                name = file.split('.')[0]
+                tiles[name] = []
+                w, h = sheet.get_size()
+                for y in range(0, h, size):
+                    for x in range(0, w, size):
+                        tile = sheet.subsurface((x, y, size, size))
+                        tiles[name].append(tile)
+    return tiles
+
+def audio_importer(folder):
+    folder = resource_path(folder)
+    audio = {}
+    for path, _, files in walk(folder):
+        for file in files:
+            if file.endswith(('.wav', '.mp3', '.ogg')):
+                full_path = os.path.join(path, file)
+                key = file.split('.')[0]
+                audio[key] = pygame.mixer.Sound(full_path)
+    return audio
